@@ -6,9 +6,9 @@ import (
 	"os/exec"
 	"path/filepath"
 
-	"github.com/your-name/create-go-app/internal/config"
-	"github.com/your-name/create-go-app/internal/env"
-	"github.com/your-name/create-go-app/internal/ui"
+	"github.com/puppet-king/create-go-app/internal/config"
+	"github.com/puppet-king/create-go-app/internal/env"
+	"github.com/puppet-king/create-go-app/internal/ui"
 )
 
 // Run executes the end-to-end scaffolding process.

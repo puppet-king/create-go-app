@@ -74,7 +74,7 @@ func Parse(args []string, stdinReader io.Reader) (*Options, error) {
 	}
 
 	if newModule == "" {
-		return nil, fmt.Errorf("项目名称/模块路径不能为空。用法: go run github.com/your-name/create-go-app@latest <新项目名>")
+		return nil, fmt.Errorf("项目名称/模块路径不能为空。用法: go run github.com/puppet-king/create-go-app@latest <新项目名>")
 	}
 
 	// Target directory is the last element of module path or direct folder name

@@ -2,6 +2,8 @@
 
 一个轻量、高效的 Go 项目脚手架 CLI 工具，类似前端生态的 `npx create-react-app` / `npm create vue`，支持一键拉取模板、自动替换模块名与 import 引用、依赖同步（`go mod tidy`）与 Wire 依赖注入代码生成。
 
+仓库地址：`https://github.com/puppet-king/create-go-app.git`
+
 ---
 
 ## ⚡ 快速使用 (无需手动安装)
@@ -9,14 +11,14 @@
 直接在终端执行：
 
 ```bash
-# 格式: go run github.com/your-name/create-go-app@latest <新项目名/模块路径>
-go run github.com/your-name/create-go-app@latest user-service
+# 格式: go run github.com/puppet-king/create-go-app@latest <新项目名/模块路径>
+go run github.com/puppet-king/create-go-app@latest user-service
 ```
 
 或者直接运行进入**交互式引导模式**：
 
 ```bash
-go run github.com/your-name/create-go-app@latest
+go run github.com/puppet-king/create-go-app@latest
 # 控制台将友好提示输入新项目名称、数据库名、微信凭证等
 ```
 
@@ -41,7 +43,7 @@ go run github.com/your-name/create-go-app@latest
 
 ```bash
 # 指定自定义数据库名与微信凭证
-go run github.com/your-name/create-go-app@latest order-service \
+go run github.com/puppet-king/create-go-app@latest order-service \
   -db-name order_db \
   -wx-appid wx1234567890abcdef \
   -wx-secret 0123456789abcdef0123456789abcdef
@@ -52,7 +54,7 @@ go run github.com/your-name/create-go-app@latest order-service \
 ## 📦 工作流流水线
 
 ```text
-  go run github.com/your-name/create-go-app@latest user-service
+  go run github.com/puppet-king/create-go-app@latest user-service
                         │
                         ▼
             【仓库 B: create-go-app】
@@ -63,6 +65,7 @@ go run github.com/your-name/create-go-app@latest order-service \
                         │ 3. 递归替换模块名与 import 引用 (含 cmd/mcp、magefile.go 等)
                         │ 4. 自动生成并注入定制化 .env 配置文件:
                         │    - DB_DSN 自动更新为当前项目库名: /user_service?
+                        │    - 自动生成 32 位高强度安全 JWT 密钥
                         │    - 注入用户输入的 WECHAT_APPID 与 WECHAT_SECRET
                         │ 5. 执行 go mod tidy
                         │ 6. 执行 Wire 依赖注入代码生成
